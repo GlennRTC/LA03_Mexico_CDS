@@ -220,7 +220,7 @@ if (msg.actions.length &gt; 0 || report !=&quot;&quot;){
 		var result;
 						
 		try {
-		  dbConn = DatabaseConnectionFactory.createDatabaseConnection(&quot;com.mysql.jdbc.Driver&quot;, &apos;jdbc:mysql://localhost:3306/statistics&apos;, &apos;root&apos;, &apos;@bb0TT2024&apos;);
+		  dbConn = DatabaseConnectionFactory.createDatabaseConnection(&quot;com.mysql.jdbc.Driver&quot;, &apos;jdbc:mysql://localhost:3306/statistics&apos;, &apos;ot&apos;, &apos;@b4&apos;);
 		  result = dbConn.executeCachedQuery(sql);
 		  if (result.next()){
  	         filter = 1;
