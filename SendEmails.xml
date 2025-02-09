@@ -1,0 +1,1538 @@
+<channel version="4.5.0">
+  <id>a6b6bcae-767e-417e-af61-ea23cad8d71d</id>
+  <nextMetaDataId>2</nextMetaDataId>
+  <name>SendEmails</name>
+  <description></description>
+  <revision>10</revision>
+  <sourceConnector version="4.5.0">
+    <metaDataId>0</metaDataId>
+    <name>sourceConnector</name>
+    <properties class="com.mirth.connect.connectors.vm.VmReceiverProperties" version="4.5.0">
+      <pluginProperties/>
+      <sourceConnectorProperties version="4.5.0">
+        <responseVariable>None</responseVariable>
+        <respondAfterProcessing>true</respondAfterProcessing>
+        <processBatch>false</processBatch>
+        <firstResponse>false</firstResponse>
+        <processingThreads>1</processingThreads>
+        <resourceIds class="linked-hash-map">
+          <entry>
+            <string>Default Resource</string>
+            <string>[Default Resource]</string>
+          </entry>
+        </resourceIds>
+        <queueBufferSize>1000</queueBufferSize>
+      </sourceConnectorProperties>
+    </properties>
+    <transformer version="4.5.0">
+      <elements>
+        <com.mirth.connect.plugins.javascriptstep.JavaScriptStep version="4.5.0">
+          <sequenceNumber>0</sequenceNumber>
+          <enabled>false</enabled>
+          <script>java.lang.Thread.sleep(5000);</script>
+        </com.mirth.connect.plugins.javascriptstep.JavaScriptStep>
+      </elements>
+      <inboundTemplate encoding="base64">ewogICJjYXNlSWQiIDogIjMgNTk5NjQ2LTE5NGFjZGI0IiwKICAia2JDb2RlIiA6ICJTRVAiLAogICJzaXRlIiA6ICIiLAogICJzZW5kZXJSZWZlcmVuY2UiIDogIiIsCiAgInJlcG9ydCIgOiAiIiwKICAiYWN0aW9ucyIgOiBbCiAgICB7CiAgICAgICJleHRlcm5hbE5hbWUiIDogIkVNQUlMIiwKICAgICAgInZhbHVlIiA6ICJnbGVubi50b21hc3NpQGFiYm90dC5jb20sZGVubmlzZXNheWVyLnJpb3NAYWJib3R0LmNvbXxSZWdsYSBkZSBQcnVlYmF8IEN1ZXJwbyBkZSBwcnVlYmEuIgogICAgfQogIF0sCiAgImFwcHJvdmVkIiA6IHRydWUsCiAgInJldmlld2VyIiA6ICJBVVRPIiwKICAiY29tbWVudElkcyIgOiBbCiAgICAxMTkwCiAgXQp9</inboundTemplate>
+      <outboundTemplate encoding="base64"></outboundTemplate>
+      <inboundDataType>JSON</inboundDataType>
+      <outboundDataType>JSON</outboundDataType>
+      <inboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.0">
+        <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.0">
+          <splitType>JavaScript</splitType>
+          <batchScript></batchScript>
+        </batchProperties>
+      </inboundProperties>
+      <outboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.0">
+        <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.0">
+          <splitType>JavaScript</splitType>
+          <batchScript></batchScript>
+        </batchProperties>
+      </outboundProperties>
+    </transformer>
+    <filter version="4.5.0">
+      <elements/>
+    </filter>
+    <transportName>Channel Reader</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+    <waitForPrevious>true</waitForPrevious>
+  </sourceConnector>
+  <destinationConnectors>
+    <connector version="4.5.0">
+      <metaDataId>1</metaDataId>
+      <name>Destination 1</name>
+      <properties class="com.mirth.connect.connectors.smtp.SmtpDispatcherProperties" version="4.5.0">
+        <pluginProperties/>
+        <destinationConnectorProperties version="4.5.0">
+          <queueEnabled>false</queueEnabled>
+          <sendFirst>false</sendFirst>
+          <retryIntervalMillis>10000</retryIntervalMillis>
+          <regenerateTemplate>false</regenerateTemplate>
+          <retryCount>0</retryCount>
+          <rotate>false</rotate>
+          <includeFilterTransformer>false</includeFilterTransformer>
+          <threadCount>1</threadCount>
+          <threadAssignmentVariable></threadAssignmentVariable>
+          <validateResponse>false</validateResponse>
+          <resourceIds class="linked-hash-map">
+            <entry>
+              <string>Default Resource</string>
+              <string>[Default Resource]</string>
+            </entry>
+          </resourceIds>
+          <queueBufferSize>1000</queueBufferSize>
+          <reattachAttachments>true</reattachAttachments>
+        </destinationConnectorProperties>
+        <smtpHost>email-smtp.us-east-1.amazonaws.com</smtpHost>
+        <smtpPort>465</smtpPort>
+        <overrideLocalBinding>false</overrideLocalBinding>
+        <localAddress>0.0.0.0</localAddress>
+        <localPort>0</localPort>
+        <timeout>5000</timeout>
+        <encryption>SSL</encryption>
+        <authentication>true</authentication>
+        <username>AKIAUCSWWDHMITOGPTGW</username>
+        <password>BP1cFLpxeC1pmIhpXf+llKqESJIYuHKxftK97Q4i7MON</password>
+        <to>${email}</to>
+        <from>aliniqcds@lapi.mx</from>
+        <cc></cc>
+        <bcc></bcc>
+        <replyTo></replyTo>
+        <headers class="linked-hash-map"/>
+        <headersVariable></headersVariable>
+        <isUseHeadersVariable>false</isUseHeadersVariable>
+        <subject>${subject}</subject>
+        <charsetEncoding>DEFAULT_ENCODING</charsetEncoding>
+        <html>false</html>
+        <body>${body}</body>
+        <attachments/>
+        <attachmentsVariable></attachmentsVariable>
+        <isUseAttachmentsVariable>false</isUseAttachmentsVariable>
+      </properties>
+      <transformer version="4.5.0">
+        <elements>
+          <com.mirth.connect.plugins.javascriptstep.JavaScriptStep version="4.5.0">
+            <sequenceNumber>0</sequenceNumber>
+            <enabled>true</enabled>
+            <script>var email =msg[&apos;email&apos;];&#xd;
+while (email.indexOf(&quot; &quot;)&gt;= 0){&#xd;
+	email= email.replace(&quot; &quot;,&quot;&quot;);&#xd;
+}&#xd;
+channelMap.put(&apos;email&apos;,email);&#xd;
+&#xd;
+channelMap.put(&apos;subject&apos;,msg[&apos;subject&apos;]);&#xd;
+globalMap.put(&apos;body&apos;,msg[&apos;body&apos;]);</script>
+          </com.mirth.connect.plugins.javascriptstep.JavaScriptStep>
+        </elements>
+        <inboundTemplate encoding="base64">ew0KImVtYWlsIjoiIiwNCiJzdWJqZWN0IjoiIiwNCiJib2R5IjoiIg0KfQ==</inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundDataType>JSON</inboundDataType>
+        <outboundDataType>JSON</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.0">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.0">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.0">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.0">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </outboundProperties>
+      </transformer>
+      <responseTransformer version="4.5.0">
+        <elements/>
+        <inboundDataType>JSON</inboundDataType>
+        <outboundDataType>JSON</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.0">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.0">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.0">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.0">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </outboundProperties>
+      </responseTransformer>
+      <filter version="4.5.0">
+        <elements/>
+      </filter>
+      <transportName>SMTP Sender</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <waitForPrevious>true</waitForPrevious>
+    </connector>
+  </destinationConnectors>
+  <preprocessingScript>// Modify the message variable below to pre process data
+return message;</preprocessingScript>
+  <postprocessingScript>// This script executes once after a message has been processed
+// Responses returned from here will be stored as &quot;Postprocessor&quot; in the response map
+return;</postprocessingScript>
+  <deployScript>// This script executes once when the channel is deployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</deployScript>
+  <undeployScript>// This script executes once when the channel is undeployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</undeployScript>
+  <properties version="4.5.0">
+    <clearGlobalChannelMap>true</clearGlobalChannelMap>
+    <messageStorageMode>DEVELOPMENT</messageStorageMode>
+    <encryptData>false</encryptData>
+    <encryptAttachments>false</encryptAttachments>
+    <encryptCustomMetaData>false</encryptCustomMetaData>
+    <removeContentOnCompletion>false</removeContentOnCompletion>
+    <removeOnlyFilteredOnCompletion>false</removeOnlyFilteredOnCompletion>
+    <removeAttachmentsOnCompletion>false</removeAttachmentsOnCompletion>
+    <initialState>STARTED</initialState>
+    <storeAttachments>true</storeAttachments>
+    <metaDataColumns>
+      <metaDataColumn>
+        <name>SOURCE</name>
+        <type>STRING</type>
+        <mappingName>mirth_source</mappingName>
+      </metaDataColumn>
+      <metaDataColumn>
+        <name>TYPE</name>
+        <type>STRING</type>
+        <mappingName>mirth_type</mappingName>
+      </metaDataColumn>
+    </metaDataColumns>
+    <attachmentProperties version="4.5.0">
+      <type>None</type>
+      <properties/>
+    </attachmentProperties>
+    <resourceIds class="linked-hash-map">
+      <entry>
+        <string>Default Resource</string>
+        <string>[Default Resource]</string>
+      </entry>
+    </resourceIds>
+  </properties>
+  <exportData>
+    <metadata>
+      <enabled>true</enabled>
+      <lastModified>
+        <time>1738355188645</time>
+        <timezone>America/Bogota</timezone>
+      </lastModified>
+      <pruningSettings>
+        <pruneMetaDataDays>15</pruneMetaDataDays>
+        <archiveEnabled>true</archiveEnabled>
+        <pruneErroredMessages>false</pruneErroredMessages>
+      </pruningSettings>
+      <userId>1</userId>
+    </metadata>
+    <codeTemplateLibraries>
+      <codeTemplateLibrary version="4.5.0">
+        <id>14edb524-2418-43b8-a793-a6cd4834125f</id>
+        <name>CDSLibrary</name>
+        <revision>1</revision>
+        <lastModified>
+          <time>1718221453786</time>
+          <timezone>America/Mexico_City</timezone>
+        </lastModified>
+        <description></description>
+        <includeNewChannels>true</includeNewChannels>
+        <enabledChannelIds>
+          <string>77ab9cc6-2ecd-44c0-b42b-12d7d0d9f189</string>
+          <string>1d1c2f3f-7b43-4a08-aac9-3406457df838</string>
+          <string>747034d1-3b67-4648-b61d-97569079ec4f</string>
+          <string>8c353129-1ddc-49ad-8b83-3ad2afe7a40c</string>
+          <string>8744071f-c37e-4836-91e5-09c33fc3fc6c</string>
+          <string>433ad4fa-bc93-47c1-a845-5efea1c1072e</string>
+          <string>7fe17d45-0d9c-4e3b-84e5-1ca99bbed1b0</string>
+          <string>c493d457-70a0-4f4c-a937-0488ff6a4535</string>
+          <string>1badc74d-d04c-406b-877f-d31701e3e635</string>
+          <string>84789e18-d176-4c56-b440-2e0f2e95a99a</string>
+          <string>d399041c-db53-4cb3-bc90-de88541ad78f</string>
+          <string>eb46a988-ef28-438f-85a8-79ff448dbfa8</string>
+          <string>76c3a018-7fc4-4fa9-a233-ae85c317f616</string>
+          <string>55980407-140c-48e7-bc35-175c21f68fcb</string>
+          <string>278077bd-06c4-4367-8e98-793b88f53108</string>
+          <string>fc376d9e-a4a0-42b9-8945-c643c00a0048</string>
+          <string>18a8bfe5-6fbf-40b0-ac5e-d1e0b34316b3</string>
+          <string>b0a96d01-1c22-4c23-bce1-5536abe79f78</string>
+          <string>6e154ddd-fa94-48d0-8d51-099d4b18dc7e</string>
+          <string>0c4728b1-b0fa-4d99-9d0b-640e73a77e22</string>
+          <string>b713e9b5-f29f-420c-8767-347c4cc59235</string>
+          <string>73de28ab-9b76-43f5-a589-933aca189633</string>
+          <string>0ee1b38b-9693-49cc-a93f-d83c2162abea</string>
+          <string>c103919f-4f02-4ebb-b5fc-c74d70f9d984</string>
+          <string>7323ba37-7876-4329-bd17-6e8f63f70320</string>
+          <string>f4c513ef-f1ab-470a-bff5-d505363dd0cb</string>
+          <string>4a11b6f9-2a70-45a4-85ef-7949937ff063</string>
+          <string>698319a5-6a40-439f-a2fc-77968f8fd8b0</string>
+          <string>bcf716ce-eb41-4027-95d0-b4688cd49ee4</string>
+          <string>1dc78376-5e82-488e-8b61-844d9c9201f6</string>
+          <string>824a47e1-d27d-4c70-b613-87b22a06b30f</string>
+          <string>73fcebb7-1fac-4550-8bcf-cd90553c8706</string>
+          <string>dfaea744-4c0c-4e3e-974f-2714feb84b6a</string>
+          <string>4c30d333-07c7-4608-90fb-f209480945f9</string>
+          <string>a34ca889-a825-42c2-b8d2-eade79050a7b</string>
+          <string>65fd27b3-2550-4fc6-a077-3b700f624801</string>
+          <string>e28b6034-657f-44fe-bdfb-2eb08f6b8b9d</string>
+          <string>8bf57726-afe4-4bf2-ab11-a811a2a90173</string>
+          <string>92a2401a-38b2-4332-ae9c-382eeff9fed9</string>
+          <string>ec42f2b5-da91-422d-8e84-ca8fce839ca9</string>
+          <string>f9e9b002-0d75-4d07-9829-9a936107fa64</string>
+          <string>3e3fa50e-bf1f-4040-94e8-e534f59f1aca</string>
+          <string>44fa8b92-bea5-4ca9-bc34-fba837df1f3e</string>
+          <string>9a05a6d3-f67e-4e8d-a5c8-eeddecacea4f</string>
+          <string>7b43fb86-dd49-4f24-8e63-2921f65835a7</string>
+          <string>1ef6c048-d7a7-4702-a9fa-88c3929f28d7</string>
+          <string>e5ac2e27-f193-4738-b6e4-fa77ccdb8210</string>
+          <string>5d6a3192-30a4-4b5d-9e42-ce67cc86d815</string>
+          <string>a769de5d-f56c-4603-bcbc-3d2459213531</string>
+          <string>bfe36ced-a6f7-44e7-af45-5837f11b3bad</string>
+          <string>d1e3a6bf-f2ad-4395-aa42-5a39ca3e671d</string>
+          <string>a0372fd7-10c0-4832-adb3-80afede56081</string>
+          <string>1bc4cc73-cce0-43f1-98af-52d3072840e1</string>
+          <string>1e3cb27c-ab1a-4edd-837b-baa3d7a7b1e4</string>
+          <string>8be4a05a-d1fb-452f-bdbc-dc149574753f</string>
+          <string>9d321038-d32a-41be-b3a2-abd7434dff69</string>
+          <string>799b2a4c-6925-4ea7-8470-0d0fc00df393</string>
+          <string>5dffbd4e-833e-4a91-9497-740ad95fc4e1</string>
+          <string>03226d36-9fd4-49ce-a918-28b4fb9517b3</string>
+          <string>7a35a369-f78d-4e11-b045-c84d87d26355</string>
+          <string>b1b9fd9d-0be2-4a67-87a8-38f405b2c3bb</string>
+          <string>84ce7656-7580-4d1d-9d81-e81e325089fd</string>
+          <string>b13045bc-2898-4fc1-b952-5ea29cf70720</string>
+          <string>60863a3d-2b00-42fc-aae5-35fd259f5bb2</string>
+          <string>750017ad-a990-4ed0-9a1f-75c94531aba4</string>
+          <string>54694f01-6c22-44db-a7e5-ebc9ae829740</string>
+          <string>b5bdf4f0-81b3-4c53-b885-c0c670db3d57</string>
+          <string>8f69e69c-327c-4275-8aca-f2cda426dab5</string>
+          <string>6df4f01c-e2ee-400b-8f23-547df6db1358</string>
+          <string>3b2dd6b0-68c1-4392-b655-087abacd766d</string>
+          <string>01ea1ce1-60ff-42c5-b059-a15a77275267</string>
+          <string>cb9377d3-e95b-4b0b-bbb2-5e84fb106556</string>
+          <string>a036bb2a-a192-455b-b3f3-14ab0fd5cbac</string>
+          <string>110bc202-af08-4bfe-b641-887703d741f0</string>
+          <string>0d1732eb-79c8-47b1-a829-58be289cee1f</string>
+          <string>4b6f419b-3fbf-4371-b1fe-c51ecd5a05aa</string>
+          <string>23b63fb2-743f-481a-9726-99430365b127</string>
+          <string>d459da66-c436-4ae0-a5ec-d153d2d891a5</string>
+          <string>37586608-d3c6-4465-953a-dce98ee13a2c</string>
+          <string>ed36555d-bab4-476d-9887-ac2727f94e40</string>
+          <string>2472b206-9949-4ada-acbb-64b14eae1b78</string>
+          <string>a849d594-1242-4840-8d17-634abf7a9e66</string>
+          <string>b5b3ad88-a0a7-4110-8813-19f68dc7b136</string>
+        </enabledChannelIds>
+        <disabledChannelIds/>
+        <codeTemplates>
+          <codeTemplate version="4.5.0">
+            <id>68af7e0a-a2a5-438d-bb24-fd55642929a2</id>
+            <name>createAttribute</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221454332</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>function createAttribute(name ,value){
+	var attributeObject = {};
+  attributeObject.externalName = name;
+  attributeObject.value =	value;	
+  return attributeObject
+	}
+</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="4.5.0">
+            <id>06ef2d18-82b1-4402-9113-6f4a8d472361</id>
+            <name>createExtendedAttribute</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221455463</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>function createExtendedAttribute(externalName,value,units,range)
+{
+	var attributeObject = {};
+	if(validateValues(value))
+	{ 
+		
+	  	attributeObject.externalName  = externalName;
+	  	attributeObject.value =value;
+	  	attributeObject.units =units;
+	  	
+	  	if (validateRange(range)){
+	 		attributeObject.range=range ;
+	  	}
+	 	
+		
+	}else 
+	{attributeObject.externalName  = externalName;}
+	return  attributeObject;
+	
+}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="4.5.0">
+            <id>0bf4aa5b-5d2c-467e-a47a-8c05e137f6a3</id>
+            <name>Get_Informix_Connection</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221454113</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+JavaScript function to centralise creation of a database connection. The
+connection won&apos;t be open, the caller still needs to do this but all constants
+will be instantiated here
+
+@return dbConn returns an instance of a returns a new DatabaseConnection object
+*/
+function Get_Informix_Connection() {
+
+var dbConn = DatabaseConnectionFactory.createDatabaseConnection(&apos;com.informix.jdbc.IfxDriver&apos;, &apos;jdbc:informix-sqli://10.192.176.57:1526/orion_clinic:INFORMIXSERVER=dboc&apos;, &apos;consultaocli&apos;, &apos;hdrsanjuan&apos;);
+
+return dbConn;
+}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="4.5.0">
+            <id>aff2785a-9d8b-44e1-8667-21a23f632eb6</id>
+            <name>validateRange</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221454524</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>function validateRange(ReferenceRange)
+{
+	if(ReferenceRange != null &amp;&amp; ReferenceRange.toString().trim().indexOf(&apos;-&apos;) &gt;=0 )
+	{
+	return true;
+	}
+	else { return false;}
+	}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="4.5.0">
+            <id>e5be0fe3-40ff-4738-9e29-19199e8e10aa</id>
+            <name>validateValues</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221455072</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>function validateValues(labvalue)
+{
+	if (  labvalue == null || labvalue == &quot;Nil&quot;  )
+	{return false;}
+	else
+	return true;
+	};
+	</code>
+            </properties>
+          </codeTemplate>
+        </codeTemplates>
+      </codeTemplateLibrary>
+      <codeTemplateLibrary version="4.5.0">
+        <id>0e6800ae-6d84-4245-9e09-2c1a2f28d8fc</id>
+        <name>Common</name>
+        <revision>1</revision>
+        <lastModified>
+          <time>1718221453777</time>
+          <timezone>America/Mexico_City</timezone>
+        </lastModified>
+        <description></description>
+        <includeNewChannels>true</includeNewChannels>
+        <enabledChannelIds>
+          <string>0c4728b1-b0fa-4d99-9d0b-640e73a77e22</string>
+          <string>6df4f01c-e2ee-400b-8f23-547df6db1358</string>
+          <string>0ee1b38b-9693-49cc-a93f-d83c2162abea</string>
+          <string>f4c513ef-f1ab-470a-bff5-d505363dd0cb</string>
+          <string>698319a5-6a40-439f-a2fc-77968f8fd8b0</string>
+          <string>bcf716ce-eb41-4027-95d0-b4688cd49ee4</string>
+          <string>747034d1-3b67-4648-b61d-97569079ec4f</string>
+          <string>a34ca889-a825-42c2-b8d2-eade79050a7b</string>
+          <string>e28b6034-657f-44fe-bdfb-2eb08f6b8b9d</string>
+          <string>8bf57726-afe4-4bf2-ab11-a811a2a90173</string>
+          <string>8744071f-c37e-4836-91e5-09c33fc3fc6c</string>
+          <string>c33e2ab9-4947-4a9c-a086-f94a0ab6331f</string>
+          <string>f3853b12-9d89-4103-a29b-8b938c30466f</string>
+          <string>03226d36-9fd4-49ce-a918-28b4fb9517b3</string>
+          <string>278077bd-06c4-4367-8e98-793b88f53108</string>
+          <string>dd2306fc-2fd7-4a27-a082-5f8c481ec5c6</string>
+          <string>1ef6c048-d7a7-4702-a9fa-88c3929f28d7</string>
+          <string>6471c495-addd-4cf4-a834-e7f9eb93045a</string>
+          <string>60863a3d-2b00-42fc-aae5-35fd259f5bb2</string>
+        </enabledChannelIds>
+        <disabledChannelIds/>
+        <codeTemplates>
+          <codeTemplate version="4.5.0">
+            <id>43f73dbc-f73d-4178-9aa0-b451c05922e2</id>
+            <name>Check if String contains</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221454280</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>COMPILED_CODE</type>
+              <code>/**
+	To verify if one string (source) contains another string (target).
+
+	@param {String} arg1 - target string to lookup in the source string
+	@return {String} return true if the source string contains the target string
+*/
+String.prototype.contains = function(arg1) {
+	
+	return this.indexOf(arg1) &gt; -1;
+		
+};</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="4.5.0">
+            <id>6a420042-a38d-4d6b-8567-d0290086256a</id>
+            <name>Check if String contains HTTP code</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221453962</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>COMPILED_CODE</type>
+              <code>/**
+	To verify if the given string contains HTTP status code.
+
+	@param - no parameter
+	@return {String} return true if the string contains the HTTP status code, false otherwise
+*/
+
+function isHttpCode2xx(arg1) {
+	var code2xx = [&apos;200&apos;,&apos;201&apos;,&apos;202&apos;,&apos;203&apos;,&apos;204&apos;,&apos;205&apos;,&apos;206&apos;,&apos;207&apos;,&apos;208&apos;];	
+	var length = code2xx.length;
+	
+	while(length--) {
+   		if (arg1.indexOf(code2xx[length]) &gt; -1) {
+       		return true;
+   		}   		
+	}
+	return false;
+}
+
+function isHttpCode4xx(arg1) {
+	var code4xx = [&apos;400&apos;,&apos;401&apos;,&apos;402&apos;,&apos;403&apos;,&apos;404&apos;,&apos;405&apos;,&apos;406&apos;,&apos;407&apos;,&apos;408&apos;,&apos;409&apos;,&apos;410&apos;,&apos;411&apos;,&apos;412&apos;,&apos;413&apos;,&apos;414&apos;,&apos;415&apos;,&apos;416&apos;,&apos;417&apos;,&apos;429&apos;,&apos;431&apos;,&apos;451&apos;];	
+	var length = code4xx.length;
+	
+	while(length--) {
+   		if (arg1.indexOf(code4xx[length]) &gt; -1) {
+       		return true;
+   		}   		
+	}
+	return false;
+}
+
+function isHttpCode5xx(arg1) {
+	var code5xx = [&apos;500&apos;,&apos;501&apos;,&apos;502&apos;,&apos;503&apos;,&apos;504&apos;,&apos;505&apos;,&apos;506&apos;,&apos;510&apos;,&apos;511&apos;];	
+	var length = code5xx.length;
+	
+	while(length--) {
+   		if (arg1.indexOf(code5xx[length]) &gt; -1) {
+       		return true;
+   		}   		
+	}
+	return false;
+}
+</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="4.5.0">
+            <id>42dbc1c3-72e4-4ece-a6b8-5cd188446027</id>
+            <name>Convert JSON date to HL7v2 date</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221455216</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	To convert JSON date/time format to HL7v2 date only format.
+
+	@param {String} datetime - JSON date/time (yyyy-MM-ddThh:mm:ss.sss-00:00) or (yyyy-MM-dd)
+	@return {String} return HL7v2 date (yyyyMMdd)
+*/
+function convertToHL7v2Date(datetime) { 
+
+	var date = datetime.toString().match(/\d{4}\-\d{2}\-\d{2}/);
+	return ((date.length &gt; 0) ? date[0].replace(/\-/g,&apos;&apos;) : date.replace(/\-/g,&apos;&apos;));
+	
+};</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="4.5.0">
+            <id>5b60cf28-571b-4aa8-94fe-d3cdf069471b</id>
+            <name>Convert JSON datetime to HL7v2 datetime</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221453797</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	To convert JSON date/time format to HL7v2 date only format.
+	Possible formats:
+	&quot;2016-01-01T00:00:00.000Z&quot;	JavaScript built-in JSON object
+	&quot;2016-01-01T00:00:00-00:00&quot;	ISO 8601
+
+	@param {String} datetime - JSON date/time with offset (yyyy-MM-ddThh:mm:ss.sss-/+00:00) or (yyyy-MM-dd)
+	@return {String} return HL7v2 DTM date type
+*/
+function convertToHL7v2DateTime(datetime) { 
+
+	var date = [];
+	var hl7Date = &quot;&quot;;
+	var timeZome = &quot;&quot;;
+
+	if (datetime.indexOf(&quot;T&quot;) &gt; -1) {
+
+		var zone = datetime.toString().slice(datetime.indexOf(&quot;T&quot;) + 1);
+		if (zone.indexOf(&quot;+&quot;) &gt; 0) timeZone = &quot;+&quot;;
+		if (zone.indexOf(&quot;-&quot;) &gt; 0) timeZone = &quot;-&quot;;
+
+		if (datetime.indexOf(&quot;Z&quot;) &gt; 0) {
+			date = datetime.toString().split(/\-|\+|T|:|\./g);
+		} else {
+			date = datetime.toString().split(/\-|\+|T|:/g);
+		}
+		
+		for (var i=0; i &lt; 6; i++) {			
+			hl7Date += date[i]; 
+		}
+		
+		var offset = date.slice(6);
+		for (var i=0; i &lt; offset.length; i++) {
+			timeZone += offset[i];
+		}
+
+		return hl7Date + timeZone;
+
+	} else {
+		return convertToHL7v2Date(datetime);
+	}
+};</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="4.5.0">
+            <id>d014f2fc-cf80-47ad-9de8-6c84807e2f70</id>
+            <name>Extract JSON node data</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221453845</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Validates if node is not NULL or &quot;undefined&quot;. If the given node is an array, return a string of values.
+
+	@param {String} node - node to extract the data from
+	@return {String} return given node value or empty string if such node does not exist
+*/
+function extract(node) {
+
+	try {
+		var result = &quot;&quot;;
+
+		if (null == node) return result;
+		
+		if ((typeof node) !== &quot;undefined&quot;) {
+
+			if (Object.prototype.toString.call(node) === &apos;[object Array]&apos;) {
+				result = org.apache.commons.lang3.StringUtils.join(node, &quot; &quot;)
+			} else 
+				result = node;
+		}
+	} finally {
+		return result.toString().trim();
+	}
+}
+
+</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="4.5.0">
+            <id>a3f85cc2-9b95-45a9-9cb1-937197e09cdc</id>
+            <name>Verify JSON node for existance</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221453925</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Verify if the given node exists.
+
+	@param {String} node - node to verify for existance
+	@return {String} return true if the given node exists, false otherwise
+*/
+function keyExists(node) {
+	return ( ((typeof node) !== &quot;undefined&quot;) &amp;&amp; ((typeof node) !== null) );
+}</code>
+            </properties>
+          </codeTemplate>
+        </codeTemplates>
+      </codeTemplateLibrary>
+      <codeTemplateLibrary version="4.5.0">
+        <id>394664c0-d536-4310-970e-181dc03ee7da</id>
+        <name>Conversions</name>
+        <revision>1</revision>
+        <lastModified>
+          <time>1718221453753</time>
+          <timezone>America/Mexico_City</timezone>
+        </lastModified>
+        <description></description>
+        <includeNewChannels>true</includeNewChannels>
+        <enabledChannelIds>
+          <string>0c4728b1-b0fa-4d99-9d0b-640e73a77e22</string>
+          <string>6df4f01c-e2ee-400b-8f23-547df6db1358</string>
+          <string>0ee1b38b-9693-49cc-a93f-d83c2162abea</string>
+          <string>f4c513ef-f1ab-470a-bff5-d505363dd0cb</string>
+          <string>698319a5-6a40-439f-a2fc-77968f8fd8b0</string>
+          <string>bcf716ce-eb41-4027-95d0-b4688cd49ee4</string>
+          <string>747034d1-3b67-4648-b61d-97569079ec4f</string>
+          <string>a34ca889-a825-42c2-b8d2-eade79050a7b</string>
+          <string>e28b6034-657f-44fe-bdfb-2eb08f6b8b9d</string>
+          <string>8bf57726-afe4-4bf2-ab11-a811a2a90173</string>
+          <string>8744071f-c37e-4836-91e5-09c33fc3fc6c</string>
+          <string>c33e2ab9-4947-4a9c-a086-f94a0ab6331f</string>
+          <string>f3853b12-9d89-4103-a29b-8b938c30466f</string>
+          <string>03226d36-9fd4-49ce-a918-28b4fb9517b3</string>
+          <string>278077bd-06c4-4367-8e98-793b88f53108</string>
+          <string>dd2306fc-2fd7-4a27-a082-5f8c481ec5c6</string>
+          <string>1ef6c048-d7a7-4702-a9fa-88c3929f28d7</string>
+          <string>6471c495-addd-4cf4-a834-e7f9eb93045a</string>
+          <string>60863a3d-2b00-42fc-aae5-35fd259f5bb2</string>
+        </enabledChannelIds>
+        <disabledChannelIds/>
+        <codeTemplates>
+          <codeTemplate version="4.5.0">
+            <id>3a388aa0-c0ba-460c-b790-1c42c081c84d</id>
+            <name>Convert FHIR codes to HL7v2 codes</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221454585</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Map FHIR codes to corresponding HL7v2.6 codes using the Table number.
+
+	@param {String} FhirCode - FHIR code
+	@param {String} tableName - HL7v2.6 Table Name	
+	@return {String} return corresponsing HL7v2.6 code if known or &quot;Unknown&quot; result
+*/
+function convertToHL7v2Table(FhirCode,tableNumber) {
+
+	var code = &apos;&apos;;
+	if (&apos;undefined&apos; !== typeof FhirCode &amp;&amp; null !== FhirCode) {
+		code = FhirCode.toString().toLowerCase();	
+	}
+	
+
+	switch(tableNumber) {
+		case &quot;0001&quot;:
+			if (&apos;female&apos; == code || &apos;f&apos; == code) return &apos;F&apos;; else
+			if (&apos;male&apos; == code || &apos;m&apos; == code) return &apos;M&apos;; else
+			if (&apos;other&apos; == code) return &apos;O&apos;; else
+			return &apos;U&apos;; 			
+		break;
+
+		case &quot;0004&quot;:
+			// http://hl7.org/fhir/encounter-class
+			if (&apos;emergency&apos; == code) return &apos;E&apos;; else				
+			if (&apos;inpatient&apos; == code) return &apos;I&apos;; else
+			if (&apos;outpatient&apos; == code) return &apos;O&apos;; else
+			return &quot;U&quot;;
+		break;
+
+		case &quot;0190&quot;:
+			// http://hl7.org/fhir/ValueSet/address-type
+			if (&apos;postal&apos; == code) return &apos;H&apos;; else				
+			if (&apos;physical&apos; == code) return &apos;P&apos;; else
+			if (&apos;both&apos; == code) return &apos;H&apos;; else
+			return &quot;M&quot;;
+		break;		
+
+		case &quot;0201&quot;:
+			// http://hl7.org/fhir/ValueSet/contact-point-use
+			if (&apos;home&apos; == code) return &apos;PRN&apos;; else				
+			if (&apos;work&apos; == code) return &apos;WPN&apos;; else
+			if (&apos;mobile&apos; == code) return &apos;PRS&apos;; else
+			if (&apos;temp&apos; == code) return &apos;TMP&apos;; else			
+			if (&apos;old&apos; == code) return &apos;OLD&apos;; else
+			return &quot;PRN&quot;;
+		break;	
+
+		case &quot;0202&quot;:
+			// http://hl7.org/fhir/contact-point-system
+			if (&apos;phone&apos; == code) return &apos;PH&apos;; else				
+			if (&apos;fax&apos; == code) return &apos;FX&apos;; else
+			if (&apos;pager&apos; == code) return &apos;BP&apos;; else
+			if (&apos;email&apos; == code) return &apos;Internet&apos;; else
+			return &quot;PH&quot;;
+		break;	
+
+		case &quot;0063&quot;:
+			// http://hl7.org/fhir/ValueSet/patient-contact-relationship
+			// (SN) Partial list
+			if (&apos;parent&apos; == code) return &apos;PAR&apos;; else
+			if (&apos;MTH&apos; == code) return &apos;MTH&apos;; else
+			if (&apos;FTH&apos; == code) return &apos;FTH&apos;; else	
+			if (&apos;caregiver&apos; == code) return &apos;CGV&apos;; else
+			if (&apos;SPS&apos; == code) return &apos;SPO&apos;; else
+			if (&apos;CHILD&apos; == code) return &apos;CHD&apos;; else
+			if (&apos;GRNDCHILD&apos; == code) return &apos;GCH&apos;; else
+			if (&apos;GRPRN&apos; == code) return &apos;GRP&apos;; else
+			if (&apos;SIB&apos; == code) return &apos;SIB&apos;; else
+			if (&apos;BRO&apos; == code) return &apos;BRO&apos;; else
+			if (&apos;SIS&apos; == code) return &apos;SIS&apos;; else
+			if (&apos;friend&apos; == code) return &apos;FND&apos;; else
+			if (&apos;ONESELF&apos; == code) return &apos;SEL&apos;; else
+			if (&apos;emergency&apos; == code) return &apos;EMC&apos;; else
+			return &apos;UNK&apos;;		
+		break;
+		default:
+			return &apos;U&apos;;
+	}
+
+
+}</code>
+            </properties>
+          </codeTemplate>
+        </codeTemplates>
+      </codeTemplateLibrary>
+      <codeTemplateLibrary version="4.5.0">
+        <id>fc481186-afaa-447b-822c-f0ba6980e3b2</id>
+        <name>Database</name>
+        <revision>1</revision>
+        <lastModified>
+          <time>1718221453781</time>
+          <timezone>America/Mexico_City</timezone>
+        </lastModified>
+        <description></description>
+        <includeNewChannels>true</includeNewChannels>
+        <enabledChannelIds>
+          <string>0c4728b1-b0fa-4d99-9d0b-640e73a77e22</string>
+          <string>6df4f01c-e2ee-400b-8f23-547df6db1358</string>
+          <string>feecaa3a-dba6-468b-a5b7-7379e6965d53</string>
+          <string>bfe36ced-a6f7-44e7-af45-5837f11b3bad</string>
+          <string>4a11b6f9-2a70-45a4-85ef-7949937ff063</string>
+          <string>f4c513ef-f1ab-470a-bff5-d505363dd0cb</string>
+          <string>bcf716ce-eb41-4027-95d0-b4688cd49ee4</string>
+          <string>a34ca889-a825-42c2-b8d2-eade79050a7b</string>
+          <string>e28b6034-657f-44fe-bdfb-2eb08f6b8b9d</string>
+          <string>8bf57726-afe4-4bf2-ab11-a811a2a90173</string>
+          <string>8744071f-c37e-4836-91e5-09c33fc3fc6c</string>
+          <string>138c30fb-34bf-4b61-b178-41a23b895682</string>
+          <string>48871745-b660-4892-a5d6-d0a07002ee34</string>
+          <string>c493d457-70a0-4f4c-a937-0488ff6a4535</string>
+          <string>44fa8b92-bea5-4ca9-bc34-fba837df1f3e</string>
+          <string>9a05a6d3-f67e-4e8d-a5c8-eeddecacea4f</string>
+          <string>03226d36-9fd4-49ce-a918-28b4fb9517b3</string>
+          <string>1ef6c048-d7a7-4702-a9fa-88c3929f28d7</string>
+          <string>60863a3d-2b00-42fc-aae5-35fd259f5bb2</string>
+        </enabledChannelIds>
+        <disabledChannelIds>
+          <string>1e31ed90-0f2c-4950-8183-3d297d3a02a7</string>
+          <string>53ad5032-6ea6-475f-b483-c26cedbc43f2</string>
+          <string>bf34b389-a73d-441f-9590-7d7f243ad5b5</string>
+          <string>698319a5-6a40-439f-a2fc-77968f8fd8b0</string>
+        </disabledChannelIds>
+        <codeTemplates>
+          <codeTemplate version="4.5.0">
+            <id>f2b08362-f366-4e5d-8c62-4b9d2977a71a</id>
+            <name>Get_Informix_Connection</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221454782</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+JavaScript function to centralise creation of a database connection. The
+connection won&apos;t be open, the caller still needs to do this but all constants
+will be instantiated here
+
+@return dbConn returns an instance of a returns a new DatabaseConnection object
+*/
+function Get_Informix_Connection() {
+
+var dbConn = DatabaseConnectionFactory.createDatabaseConnection(&apos;com.informix.jdbc.IfxDriver&apos;, &apos;jdbc:informix-sqli://10.192.176.57:1526/orion_clinic:INFORMIXSERVER=dboc&apos;, &apos;consultaocli&apos;, &apos;hdrsanjuan&apos;);
+
+return dbConn;
+}</code>
+            </properties>
+          </codeTemplate>
+        </codeTemplates>
+      </codeTemplateLibrary>
+      <codeTemplateLibrary version="4.5.0">
+        <id>0db3684b-ca1c-42a3-b4ac-5979f6d90156</id>
+        <name>DateLibrary</name>
+        <revision>1</revision>
+        <lastModified>
+          <time>1718221453767</time>
+          <timezone>America/Mexico_City</timezone>
+        </lastModified>
+        <description></description>
+        <includeNewChannels>true</includeNewChannels>
+        <enabledChannelIds>
+          <string>20771cf2-84cd-48f7-b644-387ca3be7286</string>
+          <string>95542362-d5fa-4ab6-9bad-ec1b8e7158c3</string>
+          <string>747034d1-3b67-4648-b61d-97569079ec4f</string>
+          <string>8744071f-c37e-4836-91e5-09c33fc3fc6c</string>
+          <string>2c39ba37-5558-4b03-8572-9d598615d6f5</string>
+          <string>f0b5344f-fef0-492d-aa30-343d586964cd</string>
+          <string>eb46a988-ef28-438f-85a8-79ff448dbfa8</string>
+          <string>03226d36-9fd4-49ce-a918-28b4fb9517b3</string>
+          <string>278077bd-06c4-4367-8e98-793b88f53108</string>
+          <string>dd2306fc-2fd7-4a27-a082-5f8c481ec5c6</string>
+          <string>7976a968-87c0-4231-9d07-d96b7000f9ab</string>
+          <string>d0c614a3-7f92-4fcd-ae3e-a875f29df996</string>
+          <string>db202450-62ae-4257-b9d1-c482a5ec516b</string>
+          <string>60863a3d-2b00-42fc-aae5-35fd259f5bb2</string>
+          <string>fb12c5ab-a29f-434c-9849-957ffb52b0fb</string>
+          <string>0c4728b1-b0fa-4d99-9d0b-640e73a77e22</string>
+          <string>20accf86-8a52-47c2-b436-974981161d93</string>
+          <string>6df4f01c-e2ee-400b-8f23-547df6db1358</string>
+          <string>0ee1b38b-9693-49cc-a93f-d83c2162abea</string>
+          <string>0d1732eb-79c8-47b1-a829-58be289cee1f</string>
+          <string>f4c513ef-f1ab-470a-bff5-d505363dd0cb</string>
+          <string>049fa85e-9f9b-4f3a-8ccf-f970405e2ff5</string>
+          <string>698319a5-6a40-439f-a2fc-77968f8fd8b0</string>
+          <string>bcf716ce-eb41-4027-95d0-b4688cd49ee4</string>
+          <string>cbd38b8f-9f4f-45d0-842b-f7953d49a9e9</string>
+          <string>a34ca889-a825-42c2-b8d2-eade79050a7b</string>
+          <string>e28b6034-657f-44fe-bdfb-2eb08f6b8b9d</string>
+          <string>8bf57726-afe4-4bf2-ab11-a811a2a90173</string>
+          <string>7f99cb7e-9df9-4f60-9035-692e83174470</string>
+          <string>342b2c7f-9e89-4e32-bcd5-2b3df76c5368</string>
+          <string>57123153-b415-4444-899e-5fb7f5fbe722</string>
+          <string>1ef6c048-d7a7-4702-a9fa-88c3929f28d7</string>
+          <string>83e1c3c5-b377-47cf-89d5-71d6251deee4</string>
+        </enabledChannelIds>
+        <disabledChannelIds/>
+        <codeTemplates>
+          <codeTemplate version="4.5.0">
+            <id>5aca6564-b2be-480e-8f40-9f99e811ad34</id>
+            <name>DateFHIRToHl7</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221454467</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Modify the description here. Modify the function name and parameters as needed. One function per
+	template is recommended; create a new code template for each new function.
+
+	@param {String} arg1 - arg1 description
+	@return {String} return description
+*/
+// HL7 formate yyyy/MM/ddTHH:mm:ss
+function DateFHIRToHl7(dateInFhir) {
+
+	channelMap.put(&apos;dateInFhir&apos;,dateInFhir);
+	channelMap.put(&apos;year&apos;,dateInFhir.substring(0,4));
+	channelMap.put(&apos;MM&apos;,dateInFhir.substring(5,7));
+	channelMap.put(&apos;dd&apos;,dateInFhir.substring(8,10));
+	channelMap.put(&apos;HH&apos;,dateInFhir.substring(11,13));
+	channelMap.put(&apos;mm&apos;,dateInFhir.substring(14,16));
+	channelMap.put(&apos;ss&apos;,dateInFhir.substring(17,19));
+	
+	
+	var HL7date =new Date(dateInFhir.substring(0,4),
+	dateInFhir.substring(5,7),
+	dateInFhir.substring(8,10),
+	dateInFhir.substring(11,13),
+	dateInFhir.substring(14,16),
+	dateInFhir.substring(17,19)).getTime();
+    
+
+    return HL7date;
+}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="4.5.0">
+            <id>606eef4c-b703-4a5b-8cc0-aa68be7294c0</id>
+            <name>DateHL7ToFHIR</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221453883</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Modify the description here. Modify the function name and parameters as needed. One function per
+	template is recommended; create a new code template for each new function.
+
+	@param {String} arg1 - arg1 description
+	@return {String} return description
+*/
+// HL7 formate yyyyMMddHHmmss
+function DateHL7ToFHIR(DateHL7) {
+	
+	var FHIRdate = &apos;&apos;;
+    FHIRdate += DateHL7.substring(0,4) + &apos;/&apos;;
+    FHIRdate += DateHL7.substring(4,6) + &apos;/&apos;;
+   FHIRdate += DateHL7.substring(6,8) + &apos;T&apos;;
+   
+   if(DateHL7.substring(8,10)){
+   FHIRdate += DateHL7.substring(8,10) + &apos;:&apos;;
+   }else {FHIRdate +=&apos;00:&apos;;}
+
+     if(DateHL7.substring(10,12)){
+   FHIRdate += DateHL7.substring(8,10) + &apos;:&apos;;
+   }else {FHIRdate +=&apos;00:&apos;;}
+
+   
+     if(DateHL7.substring(12,14)){
+   FHIRdate += DateHL7.substring(8,10) + &apos;:&apos;;
+   }else {FHIRdate +=&apos;00&apos;;}
+   
+
+   
+    FHIRdate += &apos;+GMT&apos;;
+    return FHIRdate;
+}</code>
+            </properties>
+          </codeTemplate>
+        </codeTemplates>
+      </codeTemplateLibrary>
+      <codeTemplateLibrary version="4.5.0">
+        <id>f77712da-d430-4a36-88e2-815d59b91885</id>
+        <name>HL7_Limbach_DEV</name>
+        <revision>1</revision>
+        <lastModified>
+          <time>1718221453773</time>
+          <timezone>America/Mexico_City</timezone>
+        </lastModified>
+        <description>HL7</description>
+        <includeNewChannels>true</includeNewChannels>
+        <enabledChannelIds>
+          <string>0c4728b1-b0fa-4d99-9d0b-640e73a77e22</string>
+          <string>6df4f01c-e2ee-400b-8f23-547df6db1358</string>
+          <string>0ee1b38b-9693-49cc-a93f-d83c2162abea</string>
+          <string>f4c513ef-f1ab-470a-bff5-d505363dd0cb</string>
+          <string>698319a5-6a40-439f-a2fc-77968f8fd8b0</string>
+          <string>bcf716ce-eb41-4027-95d0-b4688cd49ee4</string>
+          <string>747034d1-3b67-4648-b61d-97569079ec4f</string>
+          <string>a34ca889-a825-42c2-b8d2-eade79050a7b</string>
+          <string>e28b6034-657f-44fe-bdfb-2eb08f6b8b9d</string>
+          <string>8bf57726-afe4-4bf2-ab11-a811a2a90173</string>
+          <string>8744071f-c37e-4836-91e5-09c33fc3fc6c</string>
+          <string>03226d36-9fd4-49ce-a918-28b4fb9517b3</string>
+          <string>278077bd-06c4-4367-8e98-793b88f53108</string>
+          <string>dd2306fc-2fd7-4a27-a082-5f8c481ec5c6</string>
+          <string>1ef6c048-d7a7-4702-a9fa-88c3929f28d7</string>
+          <string>60863a3d-2b00-42fc-aae5-35fd259f5bb2</string>
+        </enabledChannelIds>
+        <disabledChannelIds/>
+        <codeTemplates>
+          <codeTemplate version="4.5.0">
+            <id>8c993702-d5a3-47d5-ad5d-3a24f76fc080</id>
+            <name>Update Response from RD to FireBird DB</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221455523</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>
+function processRDResponse(senderRefReceived){
+	var endingPosOfHeadId = senderRefReceived.indexOf(&quot;episodeId:&quot;);
+	var headIdForSenderReference = senderRefReceived.substring(7, endingPosOfHeadId);
+	var endingPosOfEpisodeId = senderRefReceived.indexOf(&quot;originalMessage:&quot;);
+	var episodeIdForSenderReference = senderRefReceived.substring(endingPosOfHeadId+10, endingPosOfEpisodeId);
+	var senderReferenceOrg = senderRefReceived.substring(endingPosOfEpisodeId+16);
+	logger.debug(&quot;Channel 6 and Poll : Episode ID:  &quot;+episodeIdForSenderReference);	
+	var text = getTEXTFromBEFUND_TEXTE(headIdForSenderReference, episodeIdForSenderReference, &quot;KB&quot;);
+	if(!(input.report == &quot;&quot; || input.report == null)){
+		text = text +&quot;\n&quot;+ input.report;
+		logger.debug(&quot;Channel 6_D text from BEFUND_TEXTE: &quot;+text);
+		updateTEXTInBEFUND_TEXTE(headIdForSenderReference, episodeIdForSenderReference, text, &quot;KB&quot;); //Shoudl be KB
+		updateDetailsBEFUND_KOPF(headIdForSenderReference, episodeIdForSenderReference, &quot;CM&quot;);		
+	}
+	
+}
+
+
+/*
+	The function updateDetailsBEFUND_KOPF updates the table BEFUND_KOPF
+*/
+function updateDetailsBEFUND_KOPF(headId, episodeId, befundStatus){
+	logger.debug(&quot;Channel 6 and Poll : function updateDetailsBEFUND_KOPF headId:&quot;+headId+&quot; episodeId:&quot;+episodeId+&quot; befundStatus:&quot;+befundStatus);
+	var DBCONToUpdateTEXT = getFireBirdConnection();
+	try{
+		var DBCONToUpdateTEXT = getFireBirdConnection();
+		var SQLToUpdateTEXT = &quot;Update BEFUND_KOPF set STATUS_DRUCK=&apos;&apos;, STATUS_DATEI=&apos;N&apos; where LABOR_NUMMER=&quot;+episodeId+&quot; and ID=&quot;+headId+&quot; and BEFUND_STATUS=&apos;&quot;+befundStatus+&quot;&apos;;&quot;;
+		logger.debug(&quot;Channel 6 and Poll : Query executed to update the BEFUND_KOPF: &quot;+SQLToUpdateTEXT);
+		var res_TEXT_List = DBCONToUpdateTEXT.executeUpdate(SQLToUpdateTEXT);
+		DBCONToUpdateTEXT.close();
+	}catch(ex){
+		logger.error(&quot;Error in executing the update statement:&quot;+SQLToUpdateTEXT);
+		DBCONToUpdateTEXT.close();
+		throw ex;
+	}
+}
+
+/*
+	The function updateTEXTInBEFUND_TEXTE updates the table BEFUND_TEXTE or insert&apos;s a new row to it.
+*/
+function updateTEXTInBEFUND_TEXTE(headId, episodeId, text, text_art){
+	var DBCONToUpdateTEXT = getFireBirdConnection();
+	try{
+		var DBCONToUpdateTEXT = getFireBirdConnection();
+		var SQLToUpdateTEXT = &quot;update BEFUND_TEXTE set TEXT = &apos;&quot;+text+&quot;&apos; where LABOR_NUMMER=&quot;+episodeId+&quot; and BEFKOPFID=&quot;+headId+&quot; and TEXT_ART=&apos;&quot;+text_art+&quot;&apos;;&quot;;
+		logger.debug(&quot;Channel 6 and Poll : Query executed to update the updateTEXTInBEFUND_TEXTE: &quot;+SQLToUpdateTEXT);
+		var resOfUpdateTEXT = DBCONToUpdateTEXT.executeUpdate(SQLToUpdateTEXT);
+		logger.debug(&quot;Channel 6 and Poll : Value of the result s&quot;+resOfUpdateTEXT);
+		DBCONToUpdateTEXT.close();	
+		DBCONToUpdateTEXT = getFireBirdConnection();
+		if(resOfUpdateTEXT == 0){ 
+			var SQLToInsertTEXT = &quot;INSERT INTO BEFUND_TEXTE (BEFKOPFID, LABOR_NUMMER, LFDNR_AUFTRAG, PROBE_ID, TEXT_ART, TEXT) VALUES (&quot;+headId+&quot;,&quot;+episodeId+&quot;, Null , Null, &apos;KB&apos;, &apos;&quot;+text+&quot;&apos;);&quot;;
+			logger.debug(&quot;Channel 6 and Poll : Query executed to update the Insert into BEFUND_TEXTE: &quot;+SQLToInsertTEXT);
+			var resOfInserteTEXT = DBCONToUpdateTEXT.executeUpdate(SQLToInsertTEXT);
+			logger.debug(&quot;Channel 6 and Poll : Value of the result s&quot;+resOfInserteTEXT);	
+		}
+		DBCONToUpdateTEXT.close();	
+		
+	}catch(ex){
+		logger.error(&quot; Error in executing the update statement:&quot;+SQLToUpdateTEXT);
+		DBCONToUpdateTEXT.close();
+		throw ex;
+	}
+}
+
+/*
+	Generic function to get a new FireBird Connection. 
+*/
+function getFireBirdConnection(){
+	var FbDriver =  configurationMap.get(&quot;FbDriver&quot;);
+	var FbUrl  = configurationMap.get(&quot;FbUrl&quot;);
+	var FbUsername = configurationMap.get(&quot;FbUsername&quot;);
+	var FbPw  = configurationMap.get(&quot;FbPw&quot;);
+
+	var DBCON = DatabaseConnectionFactory.createDatabaseConnection(FbDriver,FbUrl,FbUsername,FbPw); 
+	return DBCON;
+}
+
+/*
+	The function getTEXTFromBEFUND_TEXTE gets the value of TEXT from the table BEFUND_TEXTE.
+*/
+function getTEXTFromBEFUND_TEXTE(headId, episodeId, text_art){
+	var text = &quot;&quot;;
+	var DBCONToGetTEXT = getFireBirdConnection();
+	try{
+		var SQLToGetTEXT = &quot;select TEXT from BEFUND_TEXTE where LABOR_NUMMER=&quot;+episodeId+&quot; and BEFKOPFID=&quot;+headId+&quot; and TEXT_ART=&apos;&quot;+text_art+&quot;&apos;;&quot;;
+		logger.debug(&quot;Channel 6 and Poll : Query executed to get the TEXT: &quot;+SQLToGetTEXT);
+		var res_TEXT_List = DBCONToGetTEXT.executeCachedQuery(SQLToGetTEXT);
+		var size_TEXT_List = res_TEXT_List.size();
+		if (size_TEXT_List &gt;0){
+			for(var i = 0;i&lt;size_TEXT_List;i++){
+				res_TEXT_List.next();
+				text = res_TEXT_List.getString(&quot;TEXT&quot;);
+			}
+		}
+		DBCONToGetTEXT.close();	
+	}catch(ex){
+		logger.error(&quot;Error in executing the get TEXT statement:&quot;+SQLToGetTEXT);
+		DBCONToGetTEXT.close();	
+		throw ex;
+	}
+	return text;	
+}</code>
+            </properties>
+          </codeTemplate>
+        </codeTemplates>
+      </codeTemplateLibrary>
+      <codeTemplateLibrary version="4.5.0">
+        <id>833c5444-6415-4d62-a76b-caa39589c2fa</id>
+        <name>Mirth</name>
+        <revision>1</revision>
+        <lastModified>
+          <time>1718221453762</time>
+          <timezone>America/Mexico_City</timezone>
+        </lastModified>
+        <description></description>
+        <includeNewChannels>true</includeNewChannels>
+        <enabledChannelIds>
+          <string>0c4728b1-b0fa-4d99-9d0b-640e73a77e22</string>
+          <string>6df4f01c-e2ee-400b-8f23-547df6db1358</string>
+          <string>0ee1b38b-9693-49cc-a93f-d83c2162abea</string>
+          <string>f4c513ef-f1ab-470a-bff5-d505363dd0cb</string>
+          <string>698319a5-6a40-439f-a2fc-77968f8fd8b0</string>
+          <string>bcf716ce-eb41-4027-95d0-b4688cd49ee4</string>
+          <string>747034d1-3b67-4648-b61d-97569079ec4f</string>
+          <string>a34ca889-a825-42c2-b8d2-eade79050a7b</string>
+          <string>e28b6034-657f-44fe-bdfb-2eb08f6b8b9d</string>
+          <string>8bf57726-afe4-4bf2-ab11-a811a2a90173</string>
+          <string>8744071f-c37e-4836-91e5-09c33fc3fc6c</string>
+          <string>03226d36-9fd4-49ce-a918-28b4fb9517b3</string>
+          <string>278077bd-06c4-4367-8e98-793b88f53108</string>
+          <string>dd2306fc-2fd7-4a27-a082-5f8c481ec5c6</string>
+          <string>1ef6c048-d7a7-4702-a9fa-88c3929f28d7</string>
+          <string>60863a3d-2b00-42fc-aae5-35fd259f5bb2</string>
+        </enabledChannelIds>
+        <disabledChannelIds/>
+        <codeTemplates>
+          <codeTemplate version="4.5.0">
+            <id>b9eceb1d-8abb-4931-8247-209d70519f99</id>
+            <name>Fix HL7v2 Node Order</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1718221454004</time>
+              <timezone>America/Mexico_City</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/*
+
+	See issue: http://www.mirthcorp.com/community/issues/browse/MIRTH-625
+
+	Author: Nick Rupley
+	Date Modified: 4/18/2012
+
+	fixHL7NodeOrder: Returns a new E4X node where the order of all siblings and descendants have been fixed as per the Mirth HL7 dot notation convention.
+
+	Arguments
+	---------
+		Required
+		--------
+		node: The node to be fixed. 
+*/
+function fixHL7NodeOrder(node) {
+	// Create output node
+	var newNode = new XML();
+	// In case the node is an XMLList of multiple siblings, loop through each sibling
+	for each (sibling in node) {
+		// Create new sibling node
+		var newSibling = new XML(&apos;&lt;&apos;+sibling.name().toString()+&apos;/&gt;&apos;);
+		// Iterate through each child node
+		for each (child in sibling.children())
+			// If the child has its own children, then recursively fix the node order of the child
+			if (child.hasComplexContent())
+				newSibling.appendChild(fixHL7NodeOrder(child));
+			// If the child doesn&apos;t have its own children, then just add the child to the new sibling node
+			else
+				newSibling.appendChild(child);
+		// After recursively fixing all of the child nodes, now we&apos;ll fix the current node
+		newNode += sortHL7Node(newSibling);
+	}
+	// Return the fixed node
+	return newNode;
+}
+
+function sortHL7Node(node) {
+	// If the node has no children, then there&apos;s nothing to sort
+	if (node.hasSimpleContent())
+		return node;
+	// Create new output node
+	var newNode = new XML(&apos;&lt;&apos;+node.name().toString()+&apos;/&gt;&apos;);
+	// Iterate through each child in the node
+	for each (child in node.children()) {
+		// If the child has a QName, then we can sort on it
+		if (child.name()) {
+			// Get the current &quot;index&quot; of the child. Id est, if the QName is PID.3.1, then the index is 1
+			curChildIndex = parseInt(child.name().toString().substring(child.name().toString().lastIndexOf(&apos;.&apos;)+1),10);
+			// Boolean placeholder
+			var inserted = false;
+			// Iterate through each child currently in the NEW node
+			for (var i = 0; i &lt;= newNode.children().length()-1; i++) {
+				// Get the index of the child of the new node
+				loopChildIndex = parseInt(newNode.child(i).name().toString().substring(newNode.child(i).name().toString().lastIndexOf(&apos;.&apos;)+1),10);
+				// If the child we want to insert has a lower index then the current child of the new node, then we&apos;re going to insert the child 
+				// right before the current newNode child
+				if (curChildIndex &lt; loopChildIndex) {
+					// Insert the child
+					newNode.insertChildBefore(newNode.children()[i],child);
+					// Set our flag, indicating that an insertion was made
+					inserted = true;
+					// No need to continue iteration
+					break;
+				}
+			}
+			// If no insertion was made, then the index of the child we want to insert is greater than or equal to all of the
+			// indices of the children that have already been inserted in newNode. So, we&apos;ll just append the child to the end.
+			if (!inserted)
+				newNode.appendChild(child);
+		}
+	}
+	// Return the sorted HL7 node
+	return newNode;
+}</code>
+            </properties>
+          </codeTemplate>
+        </codeTemplates>
+      </codeTemplateLibrary>
+    </codeTemplateLibraries>
+  </exportData>
+</channel>
